@@ -5,6 +5,7 @@ class Book < ApplicationRecord
       where("name LIKE ?", "%#{search}%")
     else
       all
+    end
   end
 
 end
