@@ -18,14 +18,15 @@ class ApplicationController < ActionController::Base
     doc = Nokogiri::HTML(open("https://www.reddit.com/"))
 
     entries = doc.css('.entry')
-    entriesArray = []
+    @entriesArray = []
     entries.each do |entry|
       title = entry.css('p.title>a').text
       link = entry.css('p.title>a')[0]['href']
-      entriesArray << Entry.new(title, link)
+      @entriesArray << Entry.new(title, link)
     end
 
-    render text: entriesArray
+    render template: 'scrape_reddit'
   end
+  
 end
 
