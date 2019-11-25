@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'books#index'
+  #root 'application#scrape_reddit'
 
   resources :searches
   resources :books
